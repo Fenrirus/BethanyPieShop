@@ -4,14 +4,16 @@ using BethanyPieShop.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BethanyPieShop.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200418140217_addOrder2")]
+    partial class addOrder2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -61,10 +63,10 @@ namespace BethanyPieShop.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("AddressLine1")
+                    b.Property<string>("AdressLine1")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("AddressLine2")
+                    b.Property<string>("AdressLine2")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("City")
@@ -117,9 +119,6 @@ namespace BethanyPieShop.Migrations
 
                     b.Property<int>("PieId")
                         .HasColumnType("int");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("OrderDetailId");
 

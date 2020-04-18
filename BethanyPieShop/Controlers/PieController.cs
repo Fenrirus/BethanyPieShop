@@ -40,7 +40,7 @@ namespace BethanyPieShop.Controlers
             else
             {
                 pies = _pieRepository.AllPies.Where(w => w.Category.CategoryName == category).OrderBy(o => o.PieId);
-                currentCategory = _categoryRepository.AllCategories.FirstOrDefault(w => w.CategoryName == category).ToString();
+                currentCategory = _categoryRepository.AllCategories.FirstOrDefault(w => w.CategoryName == category)?.CategoryName;
             }
 
             return View(new PiesListViewModel
